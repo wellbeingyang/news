@@ -1,0 +1,101 @@
+h1 {
+	font-size: 40px;
+}
+
+h3 {
+	font-size: 30px;
+}
+
+h4 {
+	font-size: 20px;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	padding-left: 300px;
+	padding-right: 300px;
+	background-image: url("/static/2.gif");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	position: relative;
+}
+
+.image-container {
+	overflow: auto;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.image {
+	float: left;
+	margin-right: 20px;
+}
+
+.text {
+	margin-top: 0;
+	font-size: 20px;
+	/* Reset margin for the text */
+}
+
+.news_text {
+	font-size: 20px;
+	text-indent: 2em;
+}
+
+.left-separator {
+	position: absolute;
+	background-color: black;
+	top: 0;
+	bottom: 0;
+	width: 1px;
+	left: 295px;
+}
+
+.right-separator {
+	position: absolute;
+	background-color: black;
+	top: 0;
+	bottom: 0;
+	width: 1px;
+	right: 295px;
+}
+
+.top-separator {
+	position: relative;
+	background-color: black;
+	height: 1px;
+	margin-left: -5px;
+	margin-right: -5px;
+	top: 0;
+}
+
+.bottom-separator {
+	position: absolute;
+	background-color: black;
+	height: 1px;
+	left: 295px;
+	right: 295px;
+	bottom: 0px;
+}
+
+.pagination {
+	display: flex;
+	justify-content: left;
+}
+
+.page-button{
+	margin-right: 5px;
+	margin-left: 5px;
+}
+button {
+    background-color: #ff00d9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 20px;
+    cursor: pointer;
+}

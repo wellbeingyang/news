@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>新浪科技新闻集成！！！</title>
+	<link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+	<div class="left-separator"></div>
+	<div class="right-separator"></div>
+	<div class="top-separator"></div>
+	<div class="bottom-separator"></div>
+	<h1 style="text-align: center;">新浪科技新闻集成首页</h1>
+	<div class="top-separator"></div>
+	<form action="/search" method="post" style="padding-bottom: 20px;font-size: 20px;">
+		{% csrf_token %}
+		<div style="display: flex; justify-content: space-between;">
+			<div>
+				<h4><a href="/news">新闻列表页</a><br>搜索: <input type="text" name="search_info"></h4>
+			</div>
+			<figure>
+				<a href="/">
+					<img src="{% static 'refresh.png' %}">
+					<figcaption style="text-align: center;">刷新</figcaption>
+				</a>
+			</figure>
+		</div>
+		<div class="top-separator"></div>
+		<fieldset>
+			<legend>选择排序方式:</legend>
+
+			<div>
+				<input type="radio" id="by time" name="sorting method" checked />
+				<label for="by time">按时间排序</label>
+			</div>
+
+			<div>
+				<input type="radio" id="july" name="sorting method" />
+				<label for="july">按热度排序</label>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>选择新闻种类:</legend>
+			<div>
+				<input type="checkbox" id="autumn" />
+				<label for="autumn">8月新闻</label>
+			</div>
+			<div>
+				<input type="checkbox" id="july" />
+				<label for="july">7月新闻</label>
+			</div>
+			<div>
+				<input type="checkbox" id="june" />
+				<label for="june">6月新闻</label>
+			</div>
+		</fieldset>
+	</form>
+	{% for n in news %}
+	<div class="top-separator"></div>
+	<div class="image-container">
+		<a href="/news/{{n.id}}">
+			{% if n.image_url == "" %}
+			<img class="image" src="{% static 'cover.png' %}" />
+			{% else %}
+			<img class="image" src="{{n.image_url}}" onerror="showAlternativeImage()" />
+			{% endif %}
+			<p class="text">{{n.title}}</p>
+		</a>
+	</div>
+	{% endfor %}
+</body>
+
+</html>

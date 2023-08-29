@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>新闻列表</title>
+	<link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+	<div class="left-separator"></div>
+	<div class="right-separator"></div>
+	<div class="top-separator"></div>
+	<div class="bottom-separator"></div>
+	<h4><a href="/">返回首页</a></h4>
+	<div class="top-separator"></div>
+	<h1 style="text-align: center;">新闻列表</h1>
+	{% for n in news %}
+	<div class="top-separator"></div>
+	<div class="image-container">
+		<a href="/news/{{n.id}}">
+			{% if n.image_url == "" %}
+			<img class="image" src="{% static 'cover.png' %}" />
+			{% else %}
+			<img class="image" src="{{n.image_url}}" />
+			{% endif %}
+			<p class="text">{{n.title}}</p>
+		</a>
+	</div>
+	{% endfor %}
+	<div class="top-separator"></div>
+	<div class="pagination">
+
+		<button class="page-button" page="">上一页</button>
+		<button class="page-button" page="1">1</button>
+		<button class="page-button" page="2">2</button>
+		<div>...</div>
+		<button class="page-button" page="2">349</button>
+		<button class="page-button" page="1">下一页</button>
+		跳转到: <input type="text"> <input type="submit" value="跳转">
+	</div>
+</body>
+
+</html>
